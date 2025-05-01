@@ -7,6 +7,7 @@ import DataExplorerTemplate from './templates/exploratory/DataExplorerTemplate';
 import MultiViewTemplate from './templates/dashboard/MultiViewTemplate';
 import DragableViewTemplate from './templates/dashboard/DragableViewTemplate';
 import InteractiveAddViewTemplate from './templates/dashboard/InteractiveAddViewTemplate';
+import LinkedVisualizationTemplate from './templates/dashboard/LinkedVisualizationTemplate';
 import './App.css';
 
 // タブの型定義
@@ -30,6 +31,8 @@ function App() {
         return <DragableViewTemplate />;
       case 'interactiveAdd':
         return <InteractiveAddViewTemplate />;
+      case 'linkedVisualization':
+        return <LinkedVisualizationTemplate />;
       default:
         return <div>テンプレートカテゴリを選択してください</div>;
     }
@@ -77,6 +80,12 @@ function App() {
                 onClick={() => setSelectedTemplate('interactiveAdd')}
               >
                 インタラクティブ追加ビュー
+              </button>
+              <button
+                className={selectedTemplate === 'linkedVisualization' ? 'active' : ''}
+                onClick={() => setSelectedTemplate('linkedVisualization')}
+              >
+                Linked Visualization
               </button>
             </div>
             <div className="template-grid">{renderDashboardTemplates()}</div>
